@@ -1,6 +1,6 @@
 import Projectile from "./weapons/projectile.js";
 
-export default class Archer {
+export default class Mage {
     maxVelocity = { x: 25, y: 25 }
     defaultStartingPosition = { x: 30, y: 30 }
     size = 32;
