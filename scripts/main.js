@@ -1,4 +1,4 @@
-import Archer from "./players/archer.js"
+import Mage from "./players/mage.js"
 
 // grab the canvas object created in index.html
 const canvas = document.getElementById("gameCanvas");
@@ -14,7 +14,7 @@ canvas.height = 600;
 let lastTime = 0;
 let game = { context: ctx, canvas: canvas, objects: [], fps: 0 };
 
-const currentPlayer = new Archer(game, {});
+const currentPlayer = new Mage(game, {});
 
 // start animation/game loop
 requestAnimationFrame(gameLoop);
