@@ -1,4 +1,6 @@
 import Mage from "./players/mage.js"
+import Spawner from "./enemies/spawner.js";
+import Grunt from "./enemies/grunt.js";
 
 // grab the canvas object created in index.html
 const canvas = document.getElementById("gameCanvas");
@@ -7,19 +9,21 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // set the canvas width and height
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 /* INITIALIZE VARIABLES */
 let lastTime = 0;
 let game = { context: ctx, canvas: canvas, objects: [], fps: 0 };
 
 const currentPlayer = new Mage(game, {});
+new Spawner(game, {
+  position: { x: canvas.width / 2, y: canvas.height / 2 },
+  mobClass: Grunt
+})
 
 // start animation/game loop
 requestAnimationFrame(gameLoop);
-
-
 
 function gameLoop(timestamp) {
   // get the amount of time that has passed since last update
